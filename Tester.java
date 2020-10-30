@@ -5,6 +5,7 @@ public class Tester {
 
         err += check("a.size()", a.size(), 0);
         err += check("a.add(\"test\")", a.add("test"), true);
+        err += check("a.get(0)", a.get(0), "test");
 
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
