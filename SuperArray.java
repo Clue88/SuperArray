@@ -30,4 +30,12 @@ public class SuperArray {
         data[index] = element;
         return old;
     }
+
+    private void resize() {
+        String[] newData = new String[size + 10];
+        for (int i = 0; i < data.length; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
+    }
 }
