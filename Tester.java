@@ -22,6 +22,8 @@ public class Tester {
         err += check("a.toString()", a.toString(), "[new, test1, test2, test3, test4, test5, test6, test7, test8, test9, test10, test11, test12, test13, test14]");
         a.add(3, "hi");
         err += check("a.toString()", a.toString(), "[new, test1, test2, hi, test3, test4, test5, test6, test7, test8, test9, test10, test11, test12, test13, test14]");
+        err += check("a.indexOf(\"test5\")", a.indexOf("test5"), 6);
+        err += check("a.indexOf(\"howdy\")", a.indexOf("howdy"), -1);
         a.clear();
         err += check("a.isEmpty()", a.isEmpty(), true);
         err += check("a.toString()", a.toString(), "[]");
