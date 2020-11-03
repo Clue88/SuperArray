@@ -3,6 +3,7 @@ public class Tester {
         int err = 0;
         SuperArray a = new SuperArray();
 
+        err += check("a.isEmpty()", a.isEmpty(), true);
         err += check("a.size()", a.size(), 0);
         err += check("a.add(\"test\")", a.add("test"), true);
         err += check("a.get(0)", a.get(0), "test");
@@ -13,6 +14,9 @@ public class Tester {
         }
         err += check("a.get(8)", a.get(8), "test8");
         err += check("a.get(13)", a.get(13), "test13");
+        err += check("a.isEmpty()", a.isEmpty(), false);
+        a.clear();
+        err += check("a.isEmpty()", a.isEmpty(), true);
 
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
