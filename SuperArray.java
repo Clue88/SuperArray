@@ -67,4 +67,12 @@ public class SuperArray {
         }
         return false;
     }
+
+    public void add(int index, String element) {
+        for (int i = size; i >= index; i--) {
+            data[i+1] = data[i];
+        }
+        data[index] = element;
+        size++;
+    }
 }

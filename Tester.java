@@ -20,6 +20,8 @@ public class Tester {
         err += check("a.get(13)", a.get(13), "test13");
         err += check("a.isEmpty()", a.isEmpty(), false);
         err += check("a.toString()", a.toString(), "[new, test1, test2, test3, test4, test5, test6, test7, test8, test9, test10, test11, test12, test13, test14]");
+        a.add(3, "hi");
+        err += check("a.toString()", a.toString(), "[new, test1, test2, hi, test3, test4, test5, test6, test7, test8, test9, test10, test11, test12, test13, test14]");
         a.clear();
         err += check("a.isEmpty()", a.isEmpty(), true);
         err += check("a.toString()", a.toString(), "[]");
