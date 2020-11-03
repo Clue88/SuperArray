@@ -1,8 +1,11 @@
+import java.util.Arrays;
+
 public class Tester {
     public static void main(String[] args) {
         int err = 0;
         SuperArray a = new SuperArray();
         SuperArray b = new SuperArray(20);
+        String[] c = {"world"};
 
         err += check("a.isEmpty()", b.isEmpty(), true);
         err += check("a.size()", a.size(), 0);
@@ -32,6 +35,7 @@ public class Tester {
         err += check("b.toString()", b.toString(), "[hello, world]");
         err += check("b.remove(0)", b.remove(0), "hello");
         err += check("b.toString()", b.toString(), "[world]");
+        err += check("b.toArray()", Arrays.toString(b.toArray()), Arrays.toString(c));
 
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
