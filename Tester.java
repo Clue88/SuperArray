@@ -9,6 +9,8 @@ public class Tester {
         err += check("a.get(0)", a.get(0), "test");
         err += check("a.set(0, \"new\"", a.set(0, "new"), "test");
         err += check("a.toString()", a.toString(), "[new]");
+        err += check("a.contains(\"new\")", a.contains("new"), true);
+        err += check("a.contains(\"test\")", a.contains("test"), false);
         for (int i = 1; i < 15; i++) {
             String name = "a.add(\"test" + i + "\")";
             err += check(name, a.add("test" + i), true);

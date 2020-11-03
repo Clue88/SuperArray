@@ -55,4 +55,11 @@ public class SuperArray {
         out += data[size - 1] + "]";
         return out;
     }
+
+    public boolean contains(String s) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(s)) return true;
+        }
+        return false;
+    }
 }
