@@ -15,7 +15,8 @@ Output should say "All good!"
 
 | Constructor | Description |
 | - | - |
-| `SuperArray()` | Initializes an empty SuperArray with size 0. |
+| `SuperArray()` | Initializes an empty SuperArray with size 0 and capacity 10. |
+| `SuperArray(int initialCapacity)` | Initializes an empty SuperArray with size 0 and the given capacity. |
 
 ## Method Summary
 
@@ -29,3 +30,7 @@ Output should say "All good!"
 | `void` | `clear()` | Clears the SuperArray and sets size to 0. |
 | `String` | `toString()` | Returns a string formatted version of the SuperArray in the form [e0, e1, e2, ..., eN]. |
 | `boolean` | `contains(String s)` | Returns true if an element in the array is equal to the given string. |
+| `void` | `add(int index, String element)` | Inserts the element at the given index and shifts subsequent values right. |
+| `String` | `remove(int index)` | Removes the element at the given index and shifts subsequent values left. Returns removed element. |
+| `int` | `indexOf(String s)` | Returns the index of the first occurence of the given element or -1 if the element is not contained. |
+| `String[]` | `toArray()` | Returns a String[] array of the elements in the SuperArray.
