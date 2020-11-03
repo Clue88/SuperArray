@@ -25,6 +25,11 @@ public class Tester {
         a.clear();
         err += check("a.isEmpty()", a.isEmpty(), true);
         err += check("a.toString()", a.toString(), "[]");
+        err += check("b.add(\"world\")", b.add("world"), true);
+        b.add(0, "hello");
+        err += check("b.toString()", b.toString(), "[hello, world]");
+        err += check("b.remove(0)", b.remove(0), "hello");
+        err += check("b.toString()", b.toString(), "[world]");
 
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
