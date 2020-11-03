@@ -2,8 +2,9 @@ public class Tester {
     public static void main(String[] args) {
         int err = 0;
         SuperArray a = new SuperArray();
+        SuperArray b = new SuperArray(20);
 
-        err += check("a.isEmpty()", a.isEmpty(), true);
+        err += check("a.isEmpty()", b.isEmpty(), true);
         err += check("a.size()", a.size(), 0);
         err += check("a.add(\"test\")", a.add("test"), true);
         err += check("a.get(0)", a.get(0), "test");
