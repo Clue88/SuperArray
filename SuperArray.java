@@ -99,4 +99,10 @@ public class SuperArray {
         }
         return out;
     }
+
+    public static void removeDuplicates(SuperArray s) {
+        for (int i = s.size() - 1; i >= 0; i--) {
+            if (i != s.indexOf(s.get(i))) s.remove(i);
+        }
+    }
 }

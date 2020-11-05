@@ -6,6 +6,7 @@ public class Tester {
         SuperArray a = new SuperArray();
         SuperArray b = new SuperArray(20);
         String[] c = {"world"};
+        SuperArray d = new SuperArray();
 
         err += check("a.isEmpty()", b.isEmpty(), true);
         err += check("a.size()", a.size(), 0);
@@ -36,6 +37,16 @@ public class Tester {
         err += check("b.remove(0)", b.remove(0), "hello");
         err += check("b.toString()", b.toString(), "[world]");
         err += check("b.toArray()", Arrays.toString(b.toArray()), Arrays.toString(c));
+        for (int i = 0; i < 3; i++) {
+            err += check("d.add(\"foo\")", d.add("foo"), true);
+            err += check("d.add(\"bar\")", d.add("bar"), true);
+            err += check("d.add(\"baz\")", d.add("baz"), true);
+            err += check("d.add(\"hola\")", d.add("hola"), true);
+        }
+        err += check("d.add(\"foo\")", d.add("foo"), true);
+        err += check("d.toString()", d.toString(), "[foo, bar, baz, hola, foo, bar, baz, hola, foo, bar, baz, hola, foo]");
+        SuperArray.removeDuplicates(d);
+        err += check("d.toString()", d.toString(), "[foo, bar, baz, hola]");
 
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
