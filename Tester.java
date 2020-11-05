@@ -62,13 +62,13 @@ public class Tester {
         }
         err += check("d.add(\"foo\")", d.add("foo"), true);
         err += check("d.toString()", d.toString(), "[foo, bar, baz, hola, foo, bar, baz, hola, foo, bar, baz, hola, foo]");
-        SuperArray.removeDuplicates(d);
+        Demo.removeDuplicates(d);
         err += check("d.toString()", d.toString(), "[foo, bar, baz, hola]");
 
         // Finding overlap
         err += check("e.add(\"hola\")", e.add("hola"), true);
         err += check("e.add(\"foo\")", e.add("foo"), true);
-        err += check("SuperArray.findOverlap(d, e)", SuperArray.findOverlap(d, e).toString(), "[foo, hola]");
+        err += check("Demo.findOverlap(d, e)", Demo.findOverlap(d, e).toString(), "[foo, hola]");
 
         /* ----------------------------------------------------------------- */
         if (err == 0) System.out.println("All good!");
