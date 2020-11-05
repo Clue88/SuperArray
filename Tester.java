@@ -7,6 +7,7 @@ public class Tester {
         SuperArray b = new SuperArray(20);
         String[] c = {"world"};
         SuperArray d = new SuperArray();
+        SuperArray e = new SuperArray();
 
         err += check("a.isEmpty()", b.isEmpty(), true);
         err += check("a.size()", a.size(), 0);
@@ -47,6 +48,9 @@ public class Tester {
         err += check("d.toString()", d.toString(), "[foo, bar, baz, hola, foo, bar, baz, hola, foo, bar, baz, hola, foo]");
         SuperArray.removeDuplicates(d);
         err += check("d.toString()", d.toString(), "[foo, bar, baz, hola]");
+        err += check("e.add(\"hola\")", e.add("hola"), true);
+        err += check("e.add(\"foo\")", e.add("foo"), true);
+        err += check("SuperArray.findOverlap(d, e)", SuperArray.findOverlap(d, e).toString(), "[foo, hola]");
 
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
