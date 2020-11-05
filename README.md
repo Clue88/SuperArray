@@ -34,3 +34,5 @@ Output should say "All good!"
 | `String` | `remove(int index)` | Removes the element at the given index and shifts subsequent values left. Returns removed element. |
 | `int` | `indexOf(String s)` | Returns the index of the first occurence of the given element or -1 if the element is not contained. |
 | `String[]` | `toArray()` | Returns a String[] array of the elements in the SuperArray.
+| `void` | `removeDuplicates(SuperArray s)` | Removes duplicate elements and keeps the first copy of each element. |
+| `SuperArray` | `findOverlap(SuperArray a, SuperArray b)` | Returns the intersection of a and b, in order with the first occurances in a. |
