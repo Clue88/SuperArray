@@ -10,6 +10,8 @@ public class Tester {
         String[] c = {"world"};
         SuperArray d = new SuperArray();
         SuperArray e = new SuperArray();
+        SuperArray f = new SuperArray(15);
+        SuperArray g = new SuperArray(5);
 
         // Basic methods and replacements
         err += check("a.isEmpty()", b.isEmpty(), true);
@@ -72,6 +74,12 @@ public class Tester {
         err += check("e.add(\"hola\")", e.add("hola"), true);
         err += check("e.add(\"foo\")", e.add("foo"), true);
         err += check("Demo.findOverlap(d, e)", Demo.findOverlap(d, e).toString(), "[foo, hola]");
+
+        // Checking equality
+        err += check("f.add(\"test\")", f.add("test"), true);
+        err += check("g.add(\"test\")", g.add("test"), true);
+        err += check("f.equals(g)", f.equals(g), true);
+        err += check("f.equals(a)", f.equals(a), false);
 
         /* ----------------------------------------------------------------- */
         if (err == 0) System.out.println("All good!");
