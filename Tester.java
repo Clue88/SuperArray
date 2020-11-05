@@ -39,6 +39,7 @@ public class Tester {
         err += check("a.indexOf(\"howdy\")", a.indexOf("howdy"), -1);
         err += check("a.set(0, \"test5\")", a.set(0, "test5"), "new");
         err += check("a.lastIndexOf(\"test5\")", a.lastIndexOf("test5"), 6);
+        err += check("a.lastIndexOf(\"howdy\"", a.lastIndexOf("howdy"), -1);
 
         // Clearing
         a.clear();
