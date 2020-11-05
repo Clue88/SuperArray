@@ -55,7 +55,7 @@ public class Tester {
         err += check("b.remove(0)", b.remove(0), "hello");
         err += check("b.toString()", b.toString(), "[world]");
 
-        // toArray()
+        // SuperArray to String[]
         err += check("b.toArray()", Arrays.toString(b.toArray()), Arrays.toString(c));
 
         // Removing duplicates
@@ -80,6 +80,12 @@ public class Tester {
         err += check("g.add(\"test\")", g.add("test"), true);
         err += check("f.equals(g)", f.equals(g), true);
         err += check("f.equals(a)", f.equals(a), false);
+
+        // Combining two arrays
+        err += check("Demo.zip(a, b)", Demo.zip(a, b).toString(), "[world]");
+        err += check("Demo.zip(d, e)", Demo.zip(d, e).toString(), "[foo, hola, bar, foo, baz, hola]");
+        err += check("Demo.zip(b, f)", Demo.zip(b, f).toString(), "[world, test]");
+        err += check("Demo.zip(e, d)", Demo.zip(e, d).toString(), "[hola, foo, foo, bar, baz, hola]");
 
         /* ----------------------------------------------------------------- */
         if (err == 0) System.out.println("All good!");
