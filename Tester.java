@@ -12,6 +12,7 @@ public class Tester {
         SuperArray e = new SuperArray();
         SuperArray f = new SuperArray(15);
         SuperArray g = new SuperArray(5);
+        SuperArray h;
 
         // Basic methods and replacements
         err += check("a.isEmpty()", b.isEmpty(), true);
@@ -88,12 +89,47 @@ public class Tester {
         err += check("Demo.zip(e, d)", Demo.zip(e, d).toString(), "[hola, foo, foo, bar, baz, hola]");
 
         // Exceptions
-        try {SuperArray exception = new SuperArray(-1);}
+        try {
+            h = new SuperArray(-1);
+            err += check("new SuperArray(-1)", "[no exception]", "java.lang.IllegalArgumentException: Initial capacity -1 cannot be negative");
+        }
         catch (IllegalArgumentException exc) {
             err += check("new SuperArray(-1)", exc.toString(), "java.lang.IllegalArgumentException: Initial capacity -1 cannot be negative");
+            h = new SuperArray(0);
+        }
+        err += check("h.toString()", h.toString(), "[]");
+
+        try {
+            a.get(-1);
+            err += check("a.get(-1)", "[no exception]", "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
+        }
+        catch (IndexOutOfBoundsException exc) {
+            err += check("a.get(-1)", exc.toString(), "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
+        }
+
+        try {
+            a.set(-1, "a");
+            err += check("a.set(-1, \"a\")", "[no exception]", "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
+        }
+        catch (IndexOutOfBoundsException exc) {
+            err += check("a.set(-1, \"a\")", exc.toString(), "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
+        }
+
+        try {
+            a.add(-1, "a");
+            err += check("a.add(-1, \"a\")", "[no exception]", "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
+        }
+        catch (IndexOutOfBoundsException exc) {
+            err += check("a.add(-1, \"a\")", exc.toString(), "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
         }
         
-        
+        try {
+            a.remove(-1);
+            err += check("a.remove(-1)", "[no exception]", "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
+        }
+        catch (IndexOutOfBoundsException exc) {
+            err += check("a.remove(-1)", exc.toString(), "java.lang.IndexOutOfBoundsException: Index -1 is not in range");
+        }
 
         /* ----------------------------------------------------------------- */
         if (err == 0) System.out.println("All good!");
