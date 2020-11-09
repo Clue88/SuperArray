@@ -87,6 +87,14 @@ public class Tester {
         err += check("Demo.zip(b, f)", Demo.zip(b, f).toString(), "[world, test]");
         err += check("Demo.zip(e, d)", Demo.zip(e, d).toString(), "[hola, foo, foo, bar, baz, hola]");
 
+        // Exceptions
+        try {SuperArray exception = new SuperArray(-1);}
+        catch (IllegalArgumentException exc) {
+            err += check("new SuperArray(-1)", exc.toString(), "java.lang.IllegalArgumentException: Initial capacity -1 cannot be negative");
+        }
+        
+        
+
         /* ----------------------------------------------------------------- */
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
