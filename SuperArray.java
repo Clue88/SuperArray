@@ -62,8 +62,7 @@ public class SuperArray {
     }
 
     public boolean contains(String s) {
-        if (indexOf(s) == -1) return false;
-        return true;
+        return indexOf(s) >= 0;
     }
 
     public void add(int index, String element) {
